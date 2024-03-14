@@ -1,64 +1,37 @@
 # PDF Generator
 
-A simple yet powerful PDF generation tool written in TypeScript.
+A simple JavaScript package for generating PDF documents.
 
 ## Installation
 
-```bash
+To install the package, use npm:
+
+```
 npm install pdf-generator
 ```
 
 ## Usage
 
 ```javascript
-const PDFGenerator = require("pdf-generator");
+const generatePDF = require('pdf-generator');
 
-// Create a new PDFGenerator instance
-const pdfGenerator = new PDFGenerator();
+// Define the output path and content for the PDF
+const outputPath = 'example.pdf';
+const content = 'Hello, this is a PDF generated using the pdf-generator package!';
 
-// Add content to the PDF
-pdfGenerator
-  .addText("Hello, this is a PDF generated using PDFGenerator!", {
-    fontSize: 20,
-    align: "center",
-  })
-  .addPage()
-  .addText("This is page 2 of the PDF.", {
-    y: 100,
-    align: "center",
-  });
-
-// Save the PDF
-pdfGenerator.save();
+// Generate the PDF
+generatePDF(outputPath, content);
 ```
 
 ## API
 
-### `PDFGenerator(options?: PDFGeneratorOptions)`
+### `generatePDF(outputPath, content)`
 
-Creates a new instance of PDFGenerator with optional options.
+Generates a PDF document with the specified content and saves it to the given output path.
 
-- `options.filename`: Specify the filename for the generated PDF. Default is `'output.pdf'`.
-
-### `addText(text: string, options?: TextOptions): PDFGenerator`
-
-Adds text to the PDF document.
-
-- `text`: The text content to add.
-- `options`: Optional parameters for text formatting, such as fontSize, font, alignment, etc.
-
-### `addPage(): PDFGenerator`
-
-Adds a new page to the PDF document.
-
-### `save(): void`
-
-Saves the PDF document to the specified filename.
-
-## Example
-
-Check the `example` directory for an example usage of the PDFGenerator.
+- `outputPath` (string): The path where the generated PDF file will be saved.
+- `content` (string): The content to be included in the PDF document.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This package is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
