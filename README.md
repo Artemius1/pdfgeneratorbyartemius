@@ -1,36 +1,42 @@
-# PDF Generator
+# Image Processing Package
 
-A simple JavaScript package for generating PDF documents.
+This package provides simple image processing functionalities in JavaScript.
 
 ## Installation
 
-To install the package, use npm:
+To install the package, run the following command:
 
-```
-npm install pdf-generator
+```bash
+npm install image-processing
 ```
 
 ## Usage
 
 ```javascript
-const generatePDF = require('pdf-generator');
+const { grayscale, blur } = require('image-processing');
 
-// Define the output path and content for the PDF
-const outputPath = 'example.pdf';
-const content = 'Hello, this is a PDF generated using the pdf-generator package!';
+// Apply grayscale filter to an image
+grayscale('input.jpg', 'output-grayscale.jpg');
 
-// Generate the PDF
-generatePDF(outputPath, content);
+// Apply blur filter to an image
+blur('input.jpg', 'output-blur.jpg');
 ```
 
-## API
+## Functions
 
-### `generatePDF(outputPath, content)`
+### grayscale(imagePath, outputPath)
 
-Generates a PDF document with the specified content and saves it to the given output path.
+Applies a grayscale filter to an image.
 
-- `outputPath` (string): The path where the generated PDF file will be saved.
-- `content` (string): The content to be included in the PDF document.
+- `imagePath`: Path to the input image.
+- `outputPath`: Path where the processed image will be saved.
+
+### blur(imagePath, outputPath)
+
+Applies a blur filter to an image.
+
+- `imagePath`: Path to the input image.
+- `outputPath`: Path where the processed image will be saved.
 
 ## License
 
